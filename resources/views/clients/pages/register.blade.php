@@ -20,28 +20,28 @@
                     </div>
                     <div class="form-floating mb-3">
                         <label for="hoten">Name</label>
-                        <input type="text" name="ten" class="form-control" placeholder="Văn Nè">
+                        <input type="text" name="ten" class="form-control" placeholder="Văn Nè" required>
                         @error('ten')
                         <div class=" alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-3">
                         <label for="email">Email address</label>
-                        <input type="email" name="email" class="form-control" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
                         @error('email')
                         <div class=" alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-4">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                         @error('password')
                         <div class=" alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-floating mb-4">
                         <label for="password2">Confirm password</label>
-                        <input type="password" name="password2" class="form-control" placeholder="Password">
+                        <input type="password" name="password2" class="form-control" placeholder="Password" required>
                         @error('password2')
                         <div class=" alert alert-danger">{{ $message }}</div>
                         @enderror

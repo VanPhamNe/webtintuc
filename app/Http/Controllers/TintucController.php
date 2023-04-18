@@ -22,10 +22,10 @@ class TintucController extends Controller
         $r->validate(
             [
                 'idtintuc' => 'unique:tintuc',
-                'tieude' => 'min:10|max:100',
+                'tieude' => 'min:10|max:1000',
                 'img'=>'mimes:jpeg,jpg,png|max:10000',
-                'mota'=>'min:10',
-                'noidung'=>'min:10',
+                'mota'=>'required|min:10',
+                'noidung'=>'required|min:10',
                 'ngaydang'=>'before:now',
                 
 
@@ -33,8 +33,12 @@ class TintucController extends Controller
             ],
             [
                 'idtintuc.unique' => 'Mã đã tồn tại',
+                
+                'mota.required' => 'Chua nhap Mô tả',
+                'noidung.required' => 'Chua nhap Nội dung ',
+            
                 'tieude.min' => 'Tiêu đề tối thiểu 10 ký tự',
-                'tieude.max' => 'Tiêu đề tối đa 100 ký tự',
+                'tieude.max' => 'Tiêu đề qua dai',
                 'img.mimes'=>'Hình không đúng định dạng',
                 'img.max'=>'Dung lượng hình ảnh quá lớn',
                 'mota.min'=>'Mô tả tối thiểu 10 ký tự',
@@ -42,6 +46,7 @@ class TintucController extends Controller
                 'ngaydang.before'=>'Không được chọn ngày tương lai'
             ]
         );
+     
      
         $data = $r->all();
         ///response()->json($r->all());
@@ -74,7 +79,28 @@ class TintucController extends Controller
     public function update(Request $request)
     {
         //
-     
+        $request->validate(
+            [
+                'tieude' => 'min:10|max:1000',
+                'img'=>'mimes:jpeg,jpg,png|max:10000',
+                'mota'=>'required|min:10',
+                'noidung'=>'required|min:10',
+                'ngaydang'=>'before:now',
+                
+            ],
+            [
+                'mota.required' => 'Chua nhap Mô tả',
+                'noidung.required' => 'Chua nhap Nội dung ',
+       
+                'tieude.min' => 'Tiêu đề tối thiểu 10 ký tự',
+                'tieude.max' => 'Tiêu đề qua dai',
+                'img.mimes'=>'Hình không đúng định dạng',
+                'img.max'=>'Dung lượng hình ảnh quá lớn',
+                'mota.min'=>'Mô tả tối thiểu 10 ký tự',
+                'noidung.min'=>'Nội dung tối thiểu 10 ký tự',
+                'ngaydang.before'=>'Không được chọn ngày tương lai'
+            ]
+        );
         $c = Tintuc::findorfail($request->idtintuc); //tim cate can sua
         $temp = $c->img;
         //dd($data->Image);

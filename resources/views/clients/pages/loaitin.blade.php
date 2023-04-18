@@ -13,8 +13,8 @@
               <ul class="business_catgnav  wow fadeInDown" style="align-content: center;">
                 <li>
                   <figure class="bsbig_fig"> <a  class="featured_img"> <img alt="" src="{{asset('storage/public_img/'.$tt->img)}}" height="300px" > <span class="overlay"></span> </a>
-                    <figcaption> <a >{{$tt->tieude}}</a> </figcaption>
-                    <p>{{$tt->mota}}</p>
+                    <figcaption> <a >{{ $tt->tieude }}</a> </figcaption>
+                    <p>{!! $tt->mota !!}</p>
                     <a class="btn btn-info" href="/tintuc/{{$tt->idtintuc}}">Xem them <span class="glyphicon glyphicon-chevron-right"></span></a>
                   </figure>
                 </li>

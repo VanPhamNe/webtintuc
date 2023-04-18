@@ -21,17 +21,13 @@ class CategoryController extends Controller
     {
         $r->validate(
             [
-                'idnhomtin' =>'unique:category',
-                'tennhomtin' =>'required|unique:category|min:3',
+                
+                'tennhomtin' =>'unique:category|min:3',
             ],
             [
-                'idnhomtin.unique' => 'Mã phải là duy nhất',
-                
-                
                
-                'tennhomtin.required'=>'Chưa điền tên nhóm tin 😡',
-                'tennhomtin.unique' => 'Tên nhóm tin phải là duy nhất',
                 'tennhomtin.min'=> 'Tên tối thiểu phải có 3 ký tự',
+                'tennhomtin.unique'=> 'Tên nhóm tin bị trùng, vui lòng nhập tên khác!',
             ]
         );
         $c= Category::create($r->all());
@@ -58,10 +54,10 @@ class CategoryController extends Controller
         $r->validate(
             [
                 
-                'tennhomtin' =>'required|min:3',
+                'tennhomtin' =>'min:3|unique:category'
             ],
             [
-                'tennhomtin.required'=>'Chưa điền tên danh mục 😡',
+                'tennhomtin.unique'=> 'Tên không được trùng',
                 'tennhomtin.min'=> 'Tên tối thiểu phải có 3 ký tự',
             ]
         );

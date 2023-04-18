@@ -14,8 +14,8 @@
             <h1>{{$tintuc->tieude}}</h1>
             <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>VanDepTrai</a> <span><i class="fa fa-calendar"></i>{{$tintuc->ngaydang}}</span> <a href="/loaitin/{{$tintuc->idloaitin}}"><i class="fa fa-tags"></i>{{$tintuc->loaitin->tenloaitin}}</a> </div>
             <div class="single_page_content"> <img class="img-center" src="{{asset('storage/public_img/'.$tintuc->img)}}" alt="">
-              <p>{{$tintuc->mota}}</p>
-              <blockquote> {{$tintuc->noidung}} </blockquote>
+              <p>{!!$tintuc->mota!!}</p>
+              <blockquote> {!!$tintuc->noidung!!} </blockquote>
           
               
            
@@ -26,10 +26,12 @@
 
           <div >
               <h4>Viết bình luận ...<span class="glyphicon-pencil"></span></h4>
+
               <form role="form" action="/{{$tintuc->idtintuc}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <textarea class="form-control" name="noidung" rows="3"></textarea>
+                    <textarea class="form-control" name="noidung" rows="3" required></textarea>
+
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Gửi</button>

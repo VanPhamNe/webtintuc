@@ -11,6 +11,7 @@ class CommentController extends Controller
     //
     function commentpost($id,Request $r)
     {
+    
         $idtintuc=$id;
      
         $comment=new Comment();

@@ -20,7 +20,7 @@
                     <div class="row mb-3">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Tên nhóm tin</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword3" name="tennhomtin" value="{{$data->tennhomtin}}">
+                            <input type="text" class="form-control" id="inputPassword3" name="tennhomtin" value="{{$data->tennhomtin}}" required>
                             @error('tennhomtin')
                                 <p class="alert alert-danger">{{$message}}</p>
                             @enderror

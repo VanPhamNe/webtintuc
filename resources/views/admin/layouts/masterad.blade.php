@@ -28,7 +28,11 @@
     <link href="/asset/backend/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
+    
     <link href="/asset/backend/css/style.css" rel="stylesheet">
+ 
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+    
    
 </head>
 

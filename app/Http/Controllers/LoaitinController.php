@@ -23,17 +23,16 @@ class LoaitinController extends Controller
     {
         $r->validate(
             [
-                'idloaitin' => 'required|unique:loaitin|max:50|min:3',
-                'tenloaitin' => 'required|min:3',
-                
-
+                'idloaitin' => 'unique:loaitin|max:50|min:2',
+                'tenloaitin' => 'unique:loaitin|min:3',              
 
             ],
             [
-                'idloaitin.unique' => 'Mã đã tồn tại',
-                'idloaitin.required' => 'Chưa nhập mã',
-                'tenloaitin.min' => 'Ho ten toi thieu 3 ky tu',
-                'tenloaitin.required' => 'Chưa nhập tên',
+                'idloaitin.unique' => 'Mã đã tồn tại!',
+                'idloaitin.min' => 'Mã phải tối thiểu 2 ký tự!',
+                'idloaitin.max' => 'Mã tối đa 50 ký tự!',
+                'tenloaitin.min' => 'Tên loại tin tối thiểu 3 ký tự!',
+                'tenloaitin.unique' => 'Tên loại tin bị trùng, vui lòng nhập tên khác!',
             ]
         );
      
@@ -59,12 +58,11 @@ class LoaitinController extends Controller
     public function update(Request $r)
     {
         $r->validate(
-            [
-                
-                'tenloaitin' =>'required|min:3',
+            [                
+                'tenloaitin' =>'unique:loaitin|min:3',
             ],
             [
-                'tenloaitin.required'=>'Chưa điền tên loại tin 😡',
+                'tenloaitin.unique' => 'Tên loại tin bị trùng, vui lòng nhập tên khác!',
                 'tenloaitin.min'=> 'Tên tối thiểu phải có 3 ký tự',
             ]
         );

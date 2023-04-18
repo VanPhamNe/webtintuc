@@ -6,23 +6,28 @@
         <div class="col-lg-8 col-md-8 col-sm-8">
             <div class="left_content">
                 @foreach($theloai as $item)
-                @if(count($item->loaitin)>0)
+                
                 <div class="single_post_content">
-                    
+                
+                @if(count($item->loaitin)>0)
+
                     <h2><span>{{$item->tennhomtin}}</span></h2>
+                    
                     <?php 
-                    $data=$item->tintuc->where('hot',1)->sortByDesc('created_at')->take(5);
+                    $data=$item->tintuc->sortByDesc('ngaydang')->take(5);
                     $tin1= $data->shift();
                     ?>
                     <div class="single_post_content_left">
                         <ul class="business_catgnav  wow fadeInDown" style="text-align: center;">
+                        @if(isset($tin1))
                             <li>
                                 <figure class="bsbig_fig"> <img alt="" src="{{asset('storage/public_img/'.$tin1['img'])}}"  width="330px" height="250px"> <span class="overlay"></span> </a>
-                                    <figcaption> {{$tin1['tieude']}}</figcaption>
-                                    <p>{{$tin1['mota']}}</p>
+                                    <figcaption> {!!$tin1['tieude']!!}</figcaption>
+                                    <p>{!!$tin1['mota']!!}</p>
                                     <a class="btn btn-info" href="/tintuc/{{$tin1->idtintuc}}">Xem tin <span class="glyphicon glyphicon-chevron-right"></span></a>
                                 </figure>
                             </li>
+                        @endif
                         </ul>
                     </div>
                     
@@ -42,9 +47,9 @@
                         </ul>
                         @endforeach
                     </div>
-                    
-                </div>
                 @endif
+                </div>
+                
                 @endforeach
              
             </div>

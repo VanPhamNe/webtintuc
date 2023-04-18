@@ -19,7 +19,7 @@
                         <div class="row mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Tiêu đề</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputPassword3" name="tieude" value="{{$data->tieude}}">
+                                <input type="text" class="form-control" id="inputPassword3" name="tieude" value="{{$data->tieude}}" required>
                                 @error('tieude')
                                 <p class="alert alert-danger">{{$message}}</p>
                                 @enderror
@@ -29,7 +29,7 @@
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Hình ảnh</label>
                             <div class="col-sm-10">
                                 <input type="file" class="form-control" id="inputPassword3" name="img">
-                                <img src="{{asset('storage/public_img/'.$data->img)}}" style="width: 100px;">
+                                <img src="{{asset('storage/public_img/'.$data->img)}}" style="width: 100px;" required>
 
                                 @error('img')
                                 <p class="alert alert-danger">{{$message}}</p>
@@ -39,8 +39,17 @@
                         <div class="row mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Mô tả</label>
                             <div class="col-sm-10">
-                                <textarea cols="30" rows="10" class="form-control" id="inputPassword3" name="mota">{{$data->mota}}</textarea>
-
+                                <textarea cols="30" rows="10" class="form-control" id="mota" name="mota" >{{$data->mota}}</textarea>
+                                <script>
+                                ClassicEditor
+                                .create( document.querySelector( '#mota' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                                </script>
                                 @error('mota')
                                 <p class="alert alert-danger">{{$message}}</p>
                                 @enderror
@@ -49,8 +58,17 @@
                         <div class="row mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Nội dung</label>
                             <div class="col-sm-10">
-                                <textarea cols="30" rows="10" class="form-control" id="inputPassword3" name="noidung">{{$data->noidung}}</textarea>
-
+                                <textarea cols="30" rows="10" class="form-control" id="noidung" name="noidung" >{{$data->noidung}}</textarea>
+                                <script>
+                                ClassicEditor
+                                .create( document.querySelector( '#noidung' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                                </script>
                                 @error('noidung')
                                 <p class="alert alert-danger">{{$message}}</p>
                                 @enderror
@@ -59,7 +77,7 @@
                         <div class="row mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Ngày đăng</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" id="inputPassword3" name="ngaydang" value="{{$data->ngaydang}}">
+                                <input type="date" class="form-control" id="inputPassword3" name="ngaydang" value="{{$data->ngaydang}}" required>
                                 @error('ngaydang')
                                 <p class="alert alert-danger">{{$message}}</p>
                                 @enderror
@@ -90,7 +108,7 @@
                         <div class="row mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Lượt xem</label>
                             <div class="col-sm-10">
-                                <input type="number" min="0" step="1" class="form-control" id="inputPassword3" name="luotxem" value="{{$data->luotxem}}">
+                                <input type="number" min="0" step="1" class="form-control" id="inputPassword3" name="luotxem" value="{{$data->luotxem}}" required>
                                 @error('luotxem')
                                 <p class="alert alert-danger">{{$message}}</p>
                                 @enderror

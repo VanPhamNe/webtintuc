@@ -5,20 +5,20 @@
     <div class="row g-4">
         <div class="col-md-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Quản lý loại tin</h6>
+                <h6 class="mb-4">Quản lý tin tuc</h6>
 
                 @if(session()->has('mess'))
                 <p class="alert alert-primary sm-4">
                     {{session('mess')}}
                 </p>
                 @endif
-                <table class="table table-striped table-bordered table-hover">
+                <table class="table table-striped table-bordered table-hover" >
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Tiêu đề</th>
                             <th scope="col">Mô tả</th>
-                            <th scope="col">Nội dung</th>
+                            <th scope="col" >Nội dung</th>
                             <th scope="col">Ngày đăng</th>
                             <th scope="col">Nhóm tin</th>
                             <th scope="col">Loại tin</th>
@@ -29,14 +29,14 @@
                         </tr>
                     </thead>
                     @foreach($tintuc as $item)
-                    <tbody>
-                        <tr>
+                    <tbody >
+                        <tr >
                             <td>{{$item->idtintuc}}</td>
                             <td><div>{{$item->tieude}}</div>
                                 <img width="100px" src="{{asset('storage/public_img/'.$item->img)}}" />
                             </td>
-                            <td>{{$item->mota}}</td>
-                            <td>{{$item->noidung}}</td>
+                            <td ><span>{{$item->mota}}</span></td>
+                            <td >{{$item->noidung}}</td>
                             <td>{{$item->ngaydang}}</td>
                             <td>{{$item->loaitin->nhomtin->tennhomtin}}</td>
                             <td>{{$item->loaitin->tenloaitin}}</td>

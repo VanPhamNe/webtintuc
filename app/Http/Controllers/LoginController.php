@@ -86,23 +86,21 @@ class LoginController extends Controller
         $r->validate(
             [
                 
-                'ten' => 'required|min:3',
-                'email'=>'required|unique:users|min:3|max:45|email',
-                'password' => 'required|max:50|min:2',
-                'password2'=>'required|same:password',
+                'ten' => 'min:3',
+                'email'=>'unique:users|min:3|max:45|email',
+                'password' => 'max:50|min:2',
+                'password2'=>'same:password',
             ],
             [
                 
                 'ten.min' => 'Họ tên phải tối thiểu 3 ký tự',
-                'ten.required'=>'Chua nhập họ tên',
-                'email.required'=>'Chưa nhập email',
+                
                 'email.unique'=>'email đã tồn tại',
                 'email.min'=>'Email phai tối thiểu 3 ký tự',
                 'email.max'=>'Email không vượt quá 45 ký tự',
                 'password.min' => 'Mat khau toi thieu 2 ky tu',
                 'password.max' => 'Mat khau qua 50 ky tu',
-                'password.required'=>'Mật khẩu không được trống',
-                'password2.required'=>'Trường này không được trống',
+         
                 'password2.same'=>'Không giống password',
 
 
